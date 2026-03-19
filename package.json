@@ -9,6 +9,8 @@
   },
   "keywords": [],
   "author": "3000codes",
+  "publisher": "3000codes",
+  "repository": "https://github.com/3000codes/atom-sync-saver",
   "license": "ISC",
   "packageManager": "pnpm@10.12.4",
   "devDependencies": {
