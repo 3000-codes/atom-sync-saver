@@ -1,0 +1,68 @@
+{
+  "name": "atom-sync-saver",
+  "version": "0.0.1",
+  "description": "VSCode extension to receive data from userscript and create files",
+  "main": "extension.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "npx vsce package --no-dependencies"
+  },
+  "keywords": [],
+  "author": "3000codes",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.4",
+  "devDependencies": {
+    "@vscode/vsce": "^3.7.1"
+  },
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "atom-sync-saver.startServer",
+        "title": "Start Sync Server"
+      },
+      {
+        "command": "atom-sync-saver.stopServer",
+        "title": "Stop Sync Server"
+      },
+      {
+        "command": "atom-sync-saver.configure",
+        "title": "Configure Sync Settings"
+      }
+    ],
+    "configuration": {
+      "title": "Atom Sync Saver",
+      "properties": {
+        "atomSyncSaver.serverPort": {
+          "type": "number",
+          "default": 3000,
+          "description": "Port number for the sync server"
+        },
+        "atomSyncSaver.savePath": {
+          "type": "string",
+          "default": "",
+          "description": "Custom path to save received files (empty = use workspace root)"
+        },
+        "atomSyncSaver.autoOpenFiles": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically open created files in editor"
+        },
+        "atomSyncSaver.defaultSavePath": {
+          "type": "string",
+          "default": "",
+          "description": "Default save path when no workspace is open (empty = use extension directory)"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+}
